@@ -71,6 +71,55 @@ knowledge. For example:
 
 These rules are injected into agent prompts alongside the instruction file.
 
+### `/commit-push` — Stage, Commit, Push
+
+One command to stage changes, create a conventional commit, and push.
+
+```
+/commit-push                    # Auto-generates commit message
+/commit-push fix the login bug  # Uses your message
+```
+
+Auto-detects pre-commit hooks (Husky, pre-commit) and verification commands.
+Stages files individually (never `git add -A`). Handles upstream tracking.
+
+### `/submit-pr` — Create Pull Request
+
+Creates a well-documented PR with conventional commits, proper description, and
+auto-assigned reviewers.
+
+```
+/submit-pr
+```
+
+Auto-detects verification command, instruction file, and org members for
+reviewer assignment. Gathers PR details interactively.
+
+### `/create-issue` — GitHub Issue with Codebase Context
+
+Creates a GitHub issue enriched with technical context from the codebase —
+affected files, related code, implementation steps.
+
+```
+/create-issue
+/create-issue "add dark mode support"
+```
+
+Explores the codebase to provide actionable file paths and guidance, not just
+vague descriptions.
+
+### `/create-prd` — Product Requirements Document
+
+Interactively creates a PRD by asking questions and generating a structured
+draft.
+
+```
+/create-prd
+```
+
+Auto-detects existing PRD templates. Commits the PRD, creates a linked GitHub
+issue, and guides the team workflow.
+
 ---
 
 ## Adding New Skills
